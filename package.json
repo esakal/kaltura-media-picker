@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nx serve",
     "deploy": "nx run media-query:build",
-    "gh-pages:build": "nx run playground:build --prod --skip-nx-cache --deployUrl=kaltura-media-picker/ --baseHref=/kaltura-media-picker/",
+    "gh-pages:build": "nx run playground:build --prod --skip-nx-cache --deployUrl=/kaltura-media-picker/ --baseHref=/kaltura-media-picker/",
     "gh-pages:publish": "node tools/deploy-gh-pages.js"
   },
   "private": true,

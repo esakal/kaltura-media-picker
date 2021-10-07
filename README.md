@@ -17,4 +17,5 @@ Run `npm install`
 ## Open Tasks
 - [ ] update the package name, company, author etc in `libs/media-query/package.json`
 - [ ] create the deployment `dist/libs/media-query` and test it in a playground that consume the umd file directly
+  - the umd and ems files are deployed to gh-pages like https://esakal.github.io/kaltura-media-picker/media-query.umd.js
 - [ ] add documentation
