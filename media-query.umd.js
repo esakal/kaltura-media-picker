@@ -1932,7 +1932,7 @@
 	  return str.join("&");
 	};
 
-	var defaultKalturaServerUrl = 'http://www.kaltura.com/api_v3';
+	var defaultKalturaServerUrl = 'https://www.kaltura.com/api_v3';
 
 	var MediaQueryApi = function () {
 	  function MediaQueryApi(_config) {

@@ -1974,7 +1974,7 @@ var serialize = function serialize(obj) {
   return str.join("&");
 };
 
-var defaultKalturaServerUrl = 'http://www.kaltura.com/api_v3';
+var defaultKalturaServerUrl = 'https://www.kaltura.com/api_v3';
 var MediaQueryApi = /*#__PURE__*/function () {
   function MediaQueryApi(_config) {
     this._config = _config;
