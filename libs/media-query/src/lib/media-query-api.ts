@@ -8,7 +8,7 @@ const serialize = function(obj: any) {
   return str.join("&");
 }
 
-const defaultKalturaServerUrl = 'http://www.kaltura.com/api_v3'
+const defaultKalturaServerUrl = 'https://www.kaltura.com/api_v3'
 export interface GetEntriesData {
   keyword: string,
   page: number

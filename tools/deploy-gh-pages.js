@@ -2,7 +2,6 @@ const spawnSync = require('child_process').spawnSync;
 const fsExtra = require('fs-extra');
 const path = require('path');
 var ghpages = require('gh-pages');
-const replace = require('replace-in-file');
 
 const targetPath = path.resolve(__dirname, '../dist/apps/playground')
 const mediaSourcePath = path.resolve(__dirname, '../dist/libs/media-query');
@@ -11,12 +10,6 @@ const mediaSourcePath = path.resolve(__dirname, '../dist/libs/media-query');
 
   spawnSync('npm', ['run', `build`], {
     stdio: ['inherit', 'inherit', 'inherit'],
-  });
-
-  await replace({
-    files: path.resolve(targetPath, 'index.html'),
-    from: '<base href="/">',
-    to: '<base href="/kaltura-media-picker">',
   });
 
   fsExtra.copySync(

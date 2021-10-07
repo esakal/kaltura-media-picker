@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
-    "build": "nx build --skip-nx-cache",
+    "build": "nx run playground:build --prod --skip-nx-cache --deployUrl=kaltura-media-picker/ --baseHref=/kaltura-media-picker/",
     "deploy": "nx run media-query:build",
     "update-gh-pages": "node tools/deploy-gh-pages.js"
   },
