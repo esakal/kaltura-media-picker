@@ -1,39 +1,6 @@
 {
   "version": 2,
   "projects": {
-    "kmp": {
-      "root": "libs/kmp",
-      "sourceRoot": "libs/kmp/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["libs/kmp/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/kmp"],
-          "options": {
-            "jestConfig": "libs/kmp/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/kmp",
-            "tsConfig": "libs/kmp/tsconfig.lib.json",
-            "packageJson": "libs/kmp/package.json",
-            "main": "libs/kmp/src/index.ts",
-            "assets": ["libs/kmp/*.md"]
-          }
-        }
-      }
-    },
     "media-query": {
       "root": "libs/media-query",
       "sourceRoot": "libs/media-query/src",

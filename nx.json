@@ -27,9 +27,6 @@
     ]
   },
   "projects": {
-    "kmp": {
-      "tags": []
-    },
     "media-query": {
       "tags": []
     },
