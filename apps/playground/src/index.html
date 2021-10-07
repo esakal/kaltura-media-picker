@@ -19,13 +19,14 @@
           <h1>Entry Selections</h1>
           <p>Enter KS and search keyword</p>
           <input type="text" class="form-control form-control-lg" id="ks" placeholder="ks">
-          <input type="text" class="form-control form-control-lg" id="numberInput" placeholder="keyword">
+          <input type="text" class="form-control form-control-lg" id="keyword" placeholder="keyword">
+          <input type="number" class="form-control form-control-lg" id="page" placeholder="page" value="1">
+          <input type="number" class="form-control form-control-lg" id="pageSize" placeholder="page size" value="10">
           <button id="send">search</button>
-          <div id="fact" class="card-body">
+          <div id="resultContent" style='display: none'>
             <h4 class="card-title">
-              Entries Found:
+              Entries Found (total: <span id="resultCount"></span>):
             </h4>
-            <p id="factText" class="card-text">
             <ul id="results"></ul>
             </p>
           </div>
@@ -35,11 +36,57 @@
   </div>
   <script>
     window.onload = () => {
-      const mediaQueryApi = new window.MediaQueryApi();
+      let button = document.querySelector('#send');
+      button.addEventListener('click', () => {
+        let resultContentElem = document.querySelector('#resultContent');
+        let keywordElem = document.querySelector('#keyword');
 
-      mediaQueryApi.execute().then((result) => {
-        alert(result);
-      })
+        let ksElem = document.querySelector('#ks');
+        let resultsElem = document.querySelector('#results');
+        let resultCountElem = document.querySelector('#resultCount');
+        const pageElem = document.querySelector('#page');
+        const pageSizeElem = document.querySelector('#pageSize');
+
+        const keyword = keywordElem.value;
+        const page = pageElem.value;
+        const pageSize = pageSizeElem.value;
+        const ks = ksElem.value;
+
+        if (!ks
+        || !keyword
+        ) {
+          alert('missing ks or keyword')
+          return;
+        }
+
+        // todo validate args
+        const mediaQueryApi = new window.MediaQueryApi({
+          ks
+        });
+
+        mediaQueryApi.getEntries({
+          keyword,
+          page,
+          pageSize
+
+        }).then(result => {
+
+          if (result.status) {
+            const entries = result.data;
+            resultContentElem.style.display = 'block';
+            resultsElem.innerHTML = "";
+            resultCountElem.innerText = entries.totalCount;
+            for (i in entries.objects) {
+              let a = document.createElement('li');
+              a.id = entries.objects[i].object.id;
+              a.innerText = entries.objects[i].object.name + "(" + a.id + ")";
+              resultsElem.append(a);
+            }
+          } else {
+            alert(result.error.message)
+          }
+        })
+      });
     }
 
   </script>
