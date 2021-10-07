@@ -8,7 +8,7 @@ const mediaSourcePath = path.resolve(__dirname, '../dist/libs/media-query');
 
 (async function() {
 
-  spawnSync('npm', ['run', `build`], {
+  spawnSync('npm', ['run', `gh-pages:build`], {
     stdio: ['inherit', 'inherit', 'inherit'],
   });
 
