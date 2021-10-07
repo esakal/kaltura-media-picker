@@ -13,4 +13,5 @@ Run `npm install`
 
 ## Open Tasks
 - [ ] update the package name, company, author etc in `libs/media-query/package.json`
+- [ ] create the deployment `dist/libs/media-query` and test it in a playground that consume the umd file directly
 - [ ] add documentation
